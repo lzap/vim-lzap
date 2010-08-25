@@ -1,8 +1,5 @@
 " BASIC SETTING
 
-" cursorline enables the highlighting of the line with cursor
-set cursorline
-
 " other basic settings
 set nocompatible
 set backspace=2
@@ -165,11 +162,11 @@ endif
 
 if has("x11")
 	"au GUIEnter * winpos 20 20
-	"au GUIEnter * winsize 90 40
+	au GUIEnter * winsize 90 40
 	"set guifont=Bitstream\ Vera\ Sans\ Mono\ 10
 	"set guifont=-misc-fixed-medium-r-normal--15-*-iso8859-2
 	"set guifont=Console\ 10
-	set guifont=Terminus\ 12
+	set guifont=Terminus\ 14
 endif
 
 " COLOR SCHEME
@@ -184,6 +181,11 @@ colorscheme moria
 "endif
 "hi Search guibg=#996666
 "hi Visual guibg=#666666 
+"
+" cursorline enables the highlighting of the line with cursor
+if has("gui_running")
+	set cursorline
+endif
 
 " Only do this part when compiled with support for autocommands.
 if has("autocmd")
