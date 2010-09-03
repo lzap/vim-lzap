@@ -162,7 +162,7 @@ endif
 
 if has("x11")
 	"au GUIEnter * winpos 20 20
-	au GUIEnter * winsize 90 40
+	au GUIEnter * winsize 100 35
 	"set guifont=Bitstream\ Vera\ Sans\ Mono\ 10
 	"set guifont=-misc-fixed-medium-r-normal--15-*-iso8859-2
 	"set guifont=Console\ 10
