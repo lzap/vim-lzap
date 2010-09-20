@@ -12,6 +12,8 @@ set wildignore=*~,*.o,*.log,*.aux,*.dvi,*.tmp
 map Q gq
 set mousehide
 set clipboard=unnamed
+map <S-Insert> <MiddleMouse>
+map! <S-Insert> <MiddleMouse>
 "set fileencodings=ucs-bom,utf-8,default,iso-8859-2,cp1250,latin1
 syntax on
 
