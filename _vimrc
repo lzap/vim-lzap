@@ -27,6 +27,7 @@ set linebreak
 set smarttab
 set tabstop=4 
 set shiftwidth=4
+set expandtab
 " no bracket matching (very slow)
 set noshowmatch
 let loaded_matchparen = 1
@@ -58,6 +59,7 @@ set swapsync=
 set smartcase
 set incsearch
 set hlsearch
+set path=$PWD/**
 
 " STATUS LINE
 set laststatus=2
@@ -98,6 +100,18 @@ set showbreak=+
 :inoremap <Up> <Esc>g<Up>a
 :inoremap <Down> <Esc>g<Down>a
 
+" TABS
+map th :tabfirst<CR>
+map tl :tablast<CR>
+map tt :tabedit<Space>
+map tn :tabnext<Space>
+map tm :tabm<Space>
+map th :tabnext<CR>
+map tl :tabprev<CR>
+map tn :tabnew<CR>
+map tf :tabnew<CR>:find<Space>
+map td :tabclose<CR>
+
 " SPECIAL MAPPING
 " leader
 let mapleader = ","
@@ -113,14 +127,8 @@ imap <C-SPACE> <C-X><C-O>
 " tablabel
 set guitablabel=%t
 " functional keys
-nmap <F1> :tabnew<CR>:Explore<CR>
-imap <F1> <C-o><F1>
-nmap <F2> :tabclose<CR>
-imap <F2> <C-o><F2>
-nmap <F3> :tabprevious<CR>
-imap <F3> <C-o><F3>
-nmap <F4> :tabnext<CR>
-imap <F4> <C-o><F4>
+nmap <F2> :tabnew<CR>:Explore<CR>
+imap <F2> <C-o><F1>
 command Wmake write | make
 nmap <F5> :Wmake<CR>:cl<CR>
 imap <F5> <C-o><F5>
@@ -132,13 +140,14 @@ nmap <F8> :cnext<CR>
 imap <F8> <C-o><F5>
 
 " folding
-set foldmethod=manual
-"set foldcolumn=4
-set foldlevel=6
-nmap <F11> :foldopen<CR>
-nmap <F12> :foldclose<CR>
-imap <F11> <ESC>:foldopen<CR>i
-imap <F12> <ESC>:foldclose<CR>i
+if has("folding")
+    set foldmethod=manual
+    set foldlevel=6
+    nmap <F11> :foldopen<CR>
+    nmap <F12> :foldclose<CR>
+    imap <F11> <ESC>:foldopen<CR>i
+    imap <F12> <ESC>:foldclose<CR>i
+endif
 
 " MAN PAGES AND WIN HELP
 " Have "K" lookup the keyword in a help file (man pages) on UNIX
@@ -188,38 +197,6 @@ colorscheme moria
 if has("gui_running")
 	set cursorline
 endif
-
-" Only do this part when compiled with support for autocommands.
-if has("autocmd")
-
-	" Enable file type detection.
-	" Use the default filetype settings, so that mail gets 'tw' set to 72,
-	" 'cindent' is on in C files, etc.
-	" Also load indent files, to automatically do language-dependent indenting.
-	filetype plugin indent on
-
-	" Put these in an autocmd group, so that we can delete them easily.
-	augroup vimrcEx
-		au!
-
-		" For all text files set 'textwidth' to 78 characters.
-		autocmd FileType text setlocal textwidth=78
-
-		" When editing a file, always jump to the last known cursor position.
-		" Don't do it when the position is invalid or when inside an event handler
-		" (happens when dropping a file on gvim).
-		autocmd BufReadPost *
-					\ if line("'\"") > 0 && line("'\"") <= line("$") |
-					\   exe "normal g`\"" |
-					\ endif
-
-	augroup END
-
-else
-
-	set autoindent		" always set autoindenting on
-
-endif " has("autocmd")
 
 " EOF
 
