@@ -115,6 +115,8 @@ map td :tabclose<CR>
 " SPECIAL MAPPING
 " leader
 let mapleader = ","
+" CommandT plugin
+nmap <leader>, :CommandT<CR>
 " tags (CTRL-] is not possible on Czech keylayout)
 nmap <C-K> <C-]>
 imap <C-K> <C-o><C-K>
