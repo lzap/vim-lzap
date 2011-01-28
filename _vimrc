@@ -25,8 +25,8 @@ set textwidth=0
 set linebreak
 "set smartindent
 set smarttab
-set tabstop=4 
-set shiftwidth=4
+set tabstop=2
+set shiftwidth=2
 set expandtab
 " no bracket matching (very slow)
 set noshowmatch
@@ -173,7 +173,7 @@ endif
 
 if has("x11")
 	"au GUIEnter * winpos 20 20
-	au GUIEnter * winsize 100 35
+	au GUIEnter * winsize 120 35
 	"set guifont=Bitstream\ Vera\ Sans\ Mono\ 10
 	"set guifont=-misc-fixed-medium-r-normal--15-*-iso8859-2
 	"set guifont=Console\ 10
@@ -196,6 +196,13 @@ colorscheme moria
 " cursorline enables the highlighting of the line with cursor
 if has("gui_running")
 	set cursorline
+endif
+
+" FILETYPE DETECTION
+
+if has("autocmd")
+    " load indent files, to automatically do language-dependent indenting.
+    filetype plugin indent on
 endif
 
 " EOF
