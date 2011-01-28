@@ -205,5 +205,8 @@ if has("autocmd")
     filetype plugin indent on
 endif
 
+" PATHOGEN PLUGIN (enables .vim/bundle)
+call pathogen#runtime_append_all_bundles()
+
 " EOF
 
