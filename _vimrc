@@ -141,6 +141,10 @@ imap <F7> <C-o><F5>
 nmap <F8> :cnext<CR>
 imap <F8> <C-o><F5>
 
+" trailing whitespace
+set listchars=tab:>-,trail:·,eol:$
+nmap <silent> <leader>s :set nolist!<CR>
+
 " folding
 if has("folding")
     set foldmethod=manual
