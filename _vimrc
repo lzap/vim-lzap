@@ -46,8 +46,9 @@ if has("win32")
 	set backupdir=c:/temp
 else
 	set directory=/tmp
-	set backupdir=/tmp
+	set backupdir=~/.vimbackup
 endif
+set backup
 " save swap after 250 seconds of idle
 set updatetime=250000
 " or 1000 characters written
