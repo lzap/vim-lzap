@@ -33,6 +33,8 @@ set noshowmatch
 let loaded_matchparen = 1
 " backspace and cursor keys wrap to previous/next line
 set backspace=2 whichwrap+=<,>,[,]
+" no messages about changed files
+set autoread
 
 " FIX FOR cp1250 and English Windows XP isalpha() problem
 if has("win32")
