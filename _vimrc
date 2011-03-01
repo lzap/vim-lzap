@@ -123,6 +123,7 @@ nmap <leader>, :CommandT<CR>
 " tags (CTRL-] is not possible on Czech keylayout)
 nmap <C-K> <C-]>
 imap <C-K> <C-o><C-K>
+nmap <leader>g :silent !$HOME/.vim/ctags_update.sh<CR>
 " menu and toolbar toggling
 nnoremap <C-F1> :if &go=~#'m'<Bar>set go-=m<Bar>else<Bar>set go+=m<Bar>endif<CR>
 nnoremap <C-F2> :if &go=~#'T'<Bar>set go-=T<Bar>else<Bar>set go+=T<Bar>endif<CR>
