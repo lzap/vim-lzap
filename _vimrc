@@ -226,5 +226,11 @@ endif
 " PATHOGEN PLUGIN (enables .vim/bundle)
 call pathogen#runtime_append_all_bundles()
 
+" SYNTASTIC PLUGIN
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+let g:syntastic_auto_loc_list=2
+
 " EOF
 
