@@ -132,32 +132,41 @@ nnoremap <C-F3> :if &go=~#'r'<Bar>set go-=r<Bar>else<Bar>set go+=r<Bar>endif<CR>
 imap <C-SPACE> <C-X><C-O>
 " tablabel
 set guitablabel=%t
+
 " functional keys
-nmap <F2> :tabnew<CR>:Explore<CR>
-imap <F2> <C-o><F1>
-command Wmake write | make
-nmap <F5> :Wmake<CR>:cl<CR>
-imap <F5> <C-o><F5>
-nmap <F6> :cclose<CR>
-imap <F6> <C-o><F5>
-nmap <F7> :cprevious<CR>
-imap <F7> <C-o><F5>
-nmap <F8> :cnext<CR>
-imap <F8> <C-o><F5>
+"nmap <F2> :tabnew<CR>:Explore<CR>
+"imap <F2> <C-o><F1>
+"command Wmake write | make
+"nmap <F5> :Wmake<CR>:cl<CR>
+"imap <F5> <C-o><F5>
+"nmap <F6> :cclose<CR>
+"imap <F6> <C-o><F5>
+"nmap <F7> :cprevious<CR>
+"imap <F7> <C-o><F5>
+"nmap <F8> :cnext<CR>
+"imap <F8> <C-o><F5>
+map <F5> :source project.vim<CR>
+map <F6> :source project.vim<CR>
+map <F8> :source project.vim<CR>
+map <F9> :source project.vim<CR>
+map <F9> :source project.vim<CR>
+map <F10> :source project.vim<CR>
+map <F11> :source project.vim<CR>
+map <F12> :source project.vim<CR>
 
 " trailing whitespace
 set listchars=tab:>-,trail:·,eol:$
 nmap <silent> <leader>s :set nolist!<CR>
 
 " folding
-if has("folding")
-    set foldmethod=manual
-    set foldlevel=6
-    nmap <F11> :foldopen<CR>
-    nmap <F12> :foldclose<CR>
-    imap <F11> <ESC>:foldopen<CR>i
-    imap <F12> <ESC>:foldclose<CR>i
-endif
+"if has("folding")
+"    set foldmethod=manual
+"    set foldlevel=6
+"    nmap <F11> :foldopen<CR>
+"    nmap <F12> :foldclose<CR>
+"    imap <F11> <ESC>:foldopen<CR>i
+"    imap <F12> <ESC>:foldclose<CR>i
+"endif
 
 " MAN PAGES AND WIN HELP
 " Have "K" lookup the keyword in a help file (man pages) on UNIX
