@@ -103,17 +103,16 @@ set showbreak=+
 :inoremap <Up> <Esc>g<Up>a
 :inoremap <Down> <Esc>g<Down>a
 
-" TABS
+" TABS (I dont like gt and gT)
+map tk :tabnext<CR>
+map tj :tabprev<CR>
 map th :tabfirst<CR>
 map tl :tablast<CR>
-map tt :tabedit<Space>
-map tn :tabnext<Space>
+map tt :tabclose<CR>
 map tm :tabm<Space>
-map th :tabnext<CR>
-map tl :tabprev<CR>
+map to :tabnext<Space>
 map tn :tabnew<CR>
 map tf :tabnew<CR>:find<Space>
-map td :tabclose<CR>
 
 " SPECIAL MAPPING
 " leader
