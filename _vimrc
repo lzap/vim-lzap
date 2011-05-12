@@ -131,6 +131,9 @@ nnoremap <C-F3> :if &go=~#'r'<Bar>set go-=r<Bar>else<Bar>set go+=r<Bar>endif<CR>
 imap <C-SPACE> <C-X><C-O>
 " tablabel
 set guitablabel=%t
+" session loading and saving
+nmap <leader>t :mksession $HOME/mysession.vim<CR>
+nmap <leader>r :so $HOME/mysession.vim<CR>
 
 " functional keys
 "nmap <F2> :tabnew<CR>:Explore<CR>
