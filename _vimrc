@@ -119,9 +119,9 @@ map tf :tabnew<CR>:find<Space>
 let mapleader = ","
 " CommandT plugin
 nmap <leader>, :CommandT<CR>
-" tags (CTRL-] is not possible on Czech keylayout)
-nmap <C-K> <C-]>
-imap <C-K> <C-o><C-K>
+" tags (CTRL-] is very hard to do on Czech keylayout)
+map <C-K> <C-]>
+map <S-K> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
 nmap <leader>g :silent !$HOME/.vim/ctags_update.sh<CR>
 " menu and toolbar toggling
 nnoremap <C-F1> :if &go=~#'m'<Bar>set go-=m<Bar>else<Bar>set go+=m<Bar>endif<CR>
@@ -166,12 +166,6 @@ nmap <silent> <leader>s :set nolist!<CR>
 "    imap <F11> <ESC>:foldopen<CR>i
 "    imap <F12> <ESC>:foldclose<CR>i
 "endif
-
-" MAN PAGES AND WIN HELP
-" Have "K" lookup the keyword in a help file (man pages) on UNIX
-if ! has("win32")
-	map K :execute "!man <cword>"<CR>
-endif
 
 " GUI (menu and toolbar hidden - toggle with CTRL+F1 to F3)
 set display=lastline
