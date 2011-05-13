@@ -132,7 +132,7 @@ imap <C-SPACE> <C-X><C-O>
 " tablabel
 set guitablabel=%t
 " session loading and saving
-nmap <leader>t :mksession $HOME/mysession.vim<CR>
+nmap <leader>m :mksession! $HOME/mysession.vim<CR>
 nmap <leader>r :so $HOME/mysession.vim<CR>
 
 " functional keys
