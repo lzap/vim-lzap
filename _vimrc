@@ -149,8 +149,8 @@ nmap <leader>r :so $HOME/mysession.vim<CR>
 "imap <F8> <C-o><F5>
 map <F5> :source project.vim<CR>
 map <F6> :source project.vim<CR>
+map <F7> :source project.vim<CR>
 map <F8> :source project.vim<CR>
-map <F9> :source project.vim<CR>
 map <F9> :source project.vim<CR>
 map <F10> :source project.vim<CR>
 map <F11> :source project.vim<CR>
@@ -159,6 +159,9 @@ map <F12> :source project.vim<CR>
 " trailing whitespace
 set listchars=tab:>-,trail:·,eol:$
 nmap <silent> <leader>s :set nolist!<CR>
+let c_space_errors=1
+highlight RedundantSpaces ctermbg=red guibg=red
+match RedundantSpaces /\s\+$\| \+\ze\t/
 
 " folding
 "if has("folding")

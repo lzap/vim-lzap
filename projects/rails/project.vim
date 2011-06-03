@@ -15,14 +15,14 @@
 
 function! CommandE(tag, cmd)
   call system('pkill -f ' . a:tag . '&')
-  call system('xterm -class ' . a:tag . ' -e "sh -c \"' . a:cmd . '; read -p ENTER\"" &')
+  call system('xterm -class ' . a:tag . ' -e "bash -c \"' . a:cmd . '; read -p ENTER\"" &')
   redraw
   echo 'Command Exec:' a:cmd
 endfunction
 
-map <F5> :wa\|call CommandE('XTermVimF5', 'rails s')<CR>
-map <F6> :wa\|call CommandE('XTermVimF6', 'rails c')<CR>
-map <F7> :wa\|call CommandE('XTermVimF7', 'rake spec')<CR>
+map <F5> :wa\|call CommandE('XTermVimF5', 'rails server')<CR>
+map <F6> :wa\|call CommandE('XTermVimF6', 'rails console')<CR>
+map <F7> :wa\|call CommandE('XTermVimF7', 'rake spec --trace')<CR>
 map <F8> :wa\|call CommandE('XTermVimF8', '')<CR>
 map <F9> :wa\|call CommandE('XTermVimF9', '')<CR>
 map <F10> :wa\|call CommandE('XTermVimF10', 'rake spec SPEC=' . bufname('%'))<CR>
