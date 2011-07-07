@@ -216,6 +216,10 @@ if has("gui_running")
 	set cursorline
 endif
 
+" WILDIGNORE FOR FILE LISTS
+" default: *~,*.o,*.log,*.aux,*.dvi,*.tmp,*.pyc
+set wildignore+=*.pyc,*.pyo,.git,.svn
+
 " FILETYPE DETECTION
 
 if has("autocmd")
