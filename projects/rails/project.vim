@@ -15,7 +15,7 @@
 
 function! CommandE(tag, cmd)
   call system('pkill -f ' . a:tag . '&')
-  call system('xterm -class ' . a:tag . ' -e "bash -c \"' . a:cmd . '; read -p ENTER\"" &')
+  call system('xterm -class ' . a:tag . ' -e "bash -c \"cd src/ && ' . a:cmd . '; read -p ENTER\"" &')
   redraw
   echo 'Command Exec:' a:cmd
 endfunction
