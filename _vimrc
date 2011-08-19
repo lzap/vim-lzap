@@ -58,6 +58,10 @@ set updatecount=1000
 " do not flush the swap to disk (working on laptop)
 set swapsync=
 
+" MODELINE (vim:xxxx:)
+set modeline
+set modelines=10
+
 " SEARCHING
 set smartcase
 set incsearch
@@ -113,6 +117,9 @@ map tm :tabm<Space>
 map to :tabnext<Space>
 map tn :tabnew<CR>
 map tf :tabnew<CR>:find<Space>
+
+" CZECH KEYBOARD SHORTCUTS
+map ;; `
 
 " SPECIAL MAPPING
 " leader

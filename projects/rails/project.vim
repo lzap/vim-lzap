@@ -13,20 +13,19 @@
 " any focus and in the positions I like.
 "
 
-function! CommandE(tag, cmd)
-  call system('pkill -f ' . a:tag . '&')
-  call system('xterm -class ' . a:tag . ' -e "bash -c \"cd src/ && ' . a:cmd . '; read -p ENTER\"" &')
+function! CommandE(tab, cmd)
+  call system('videx "' . a:tab . '" ' . getcwd() . ' "' . a:cmd . '"')
   redraw
   echo 'Command Exec:' a:cmd
 endfunction
 
-map <F5> :wa\|call CommandE('XTermVimF5', 'rails server')<CR>
-map <F6> :wa\|call CommandE('XTermVimF6', 'rails console')<CR>
-map <F7> :wa\|call CommandE('XTermVimF7', 'rake spec --trace')<CR>
-map <F8> :wa\|call CommandE('XTermVimF8', '')<CR>
-map <F9> :wa\|call CommandE('XTermVimF9', '')<CR>
-map <F10> :wa\|call CommandE('XTermVimF10', 'rake spec SPEC=' . bufname('%'))<CR>
-map <F11> :wa\|call CommandE('XTermVimF11', '')<CR>
+map <F5> :wa\|call CommandE('server', 'cd src && rails server')<CR>
+map <F6> :wa\|call CommandE('console', 'cd src && rails console')<CR>
+map <F7> :wa\|call CommandE('rspec suite', 'cd src && rspec spec')<CR>
+map <F8> :wa\|call CommandE('cli suite', 'scripts/test/katello-cli-simple-test.sh')<CR>
+map <F9> :wa\|call CommandE('server jobs', 'cd src && script/delayed_job run')<CR>
+map <F10> :wa\|call CommandE('rspec test', 'cd src && rake spec SPEC=' . bufname('%'))<CR>
+map <F11> :wa\|call CommandE('rspec suite', 'cd src && time rake spec --trace')<CR>
 map <F12> :source project.vim<CR>
 
 echo 'CommandE: Project loaded...'
