@@ -21,11 +21,11 @@ endfunction
 
 map <F5> :wa\|call CommandE('server', 'cd src && rails server')<CR>
 map <F6> :wa\|call CommandE('console', 'cd src && rails console')<CR>
-map <F7> :wa\|call CommandE('rspec suite', 'cd src && rake spec')<CR>
+map <F7> :wa\|call CommandE('rspec suite', 'cd src && rake kill_pg_connections spec')<CR>
 map <F8> :wa\|call CommandE('cli suite', 'scripts/test/katello-cli-simple-test.sh')<CR>
 map <F9> :wa\|call CommandE('server jobs', 'cd src && for (( ;; )); do rake jobs:work --trace; done')<CR>
-map <F10> :wa\|call CommandE('rspec test', 'cd src && rake spec SPEC=../' . bufname('%'))<CR>
-map <F11> :wa\|call CommandE('rspec suite', 'cd src && time rake spec --trace')<CR>
+map <F10> :wa\|call CommandE('rspec test', 'cd src && rake kill_pg_connections spec SPEC=../' . bufname('%'))<CR>
+map <F11> :wa\|call CommandE('rspec suite', 'cd src && time rake kill_pg_connections spec --trace')<CR>
 map <F12> :source project.vim<CR>
 
 echo 'CommandE: Project loaded...'
