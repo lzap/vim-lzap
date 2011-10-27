@@ -118,6 +118,11 @@ map to :tabnext<Space>
 map tn :tabnew<CR>
 map tf :tabnew<CR>:find<Space>
 
+" NAVIGATING ERRORS
+nmap <leader>cn :cnext<CR>
+nmap <leader>cp :cprevious<CR>
+nmap <leader>cc :cclose<CR>
+
 " CZECH KEYBOARD SHORTCUTS
 map ;; `
 
