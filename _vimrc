@@ -112,7 +112,7 @@ map tk :tabnext<CR>
 map tj :tabprev<CR>
 map th :tabfirst<CR>
 map tl :tablast<CR>
-map tt :tabclose<CR>
+map tc :tabclose<CR>
 map tm :tabm<Space>
 map to :tabnext<Space>
 map tn :tabnew<CR>
