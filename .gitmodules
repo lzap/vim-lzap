@@ -34,3 +34,6 @@
 [submodule "bundle/vim-ruby"]
 	path = bundle/vim-ruby
 	url = git://github.com/vim-ruby/vim-ruby.git
+[submodule "bundle/puppet-vim"]
+	path = bundle/puppet-vim
+	url = git://github.com/ajf/puppet-vim.git
