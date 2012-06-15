@@ -119,9 +119,9 @@ map tn :tabnew<CR>
 map tf :tabnew<CR>:find<Space>
 
 " NAVIGATING ERRORS
-nmap <leader>cn :cnext<CR>
-nmap <leader>cp :cprevious<CR>
-nmap <leader>cc :cclose<CR>
+map <leader>cn :cnext<CR>
+map <leader>cp :cprevious<CR>
+map <leader>cc :cclose<CR>
 
 " CZECH KEYBOARD SHORTCUTS
 map ;; `
@@ -176,14 +176,15 @@ highlight RedundantSpaces ctermbg=red guibg=red
 match RedundantSpaces /\s\+$\| \+\ze\t/
 
 " folding
-"if has("folding")
-"    set foldmethod=manual
-"    set foldlevel=6
-"    nmap <F11> :foldopen<CR>
-"    nmap <F12> :foldclose<CR>
-"    imap <F11> <ESC>:foldopen<CR>i
-"    imap <F12> <ESC>:foldclose<CR>i
-"endif
+if has("folding")
+  set foldmethod=manual
+  set foldlevel=6
+  set nofoldenable
+  "nmap <F11> :foldopen<CR>
+  "nmap <F12> :foldclose<CR>
+  "imap <F11> <ESC>:foldopen<CR>i
+  "imap <F12> <ESC>:foldclose<CR>i
+endif
 
 " GUI (menu and toolbar hidden - toggle with CTRL+F1 to F3)
 set display=lastline
@@ -247,6 +248,7 @@ set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 let g:syntastic_auto_loc_list=2
+let g:syntastic_python_checker = 'pyflakes'
 
 " EOF
 
