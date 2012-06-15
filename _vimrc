@@ -131,6 +131,9 @@ map ;; `
 let mapleader = ","
 " CommandT plugin
 nmap <leader>, :CommandT<CR>
+nmap <leader>b :CommandTBuffer<CR>
+nmap <leader>t :CommandTTag<CR>
+nmap <leader>f :CommandTFlush<CR>
 " tags (CTRL-] is very hard to do on Czech keylayout)
 map <C-K> <C-]>
 map <S-K> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
