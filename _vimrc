@@ -119,9 +119,10 @@ map tn :tabnew<CR>
 map tf :tabnew<CR>:find<Space>
 
 " NAVIGATING ERRORS
-map <leader>cn :cnext<CR>
-map <leader>cp :cprevious<CR>
-map <leader>cc :cclose<CR>
+map <leader>q :copen<CR>
+map <leader>w :cnext<CR>
+map <leader>e :cprevious<CR>
+map <leader>r :cclose<CR>
 
 " CZECH KEYBOARD SHORTCUTS
 map ;; `
@@ -148,7 +149,7 @@ imap <C-SPACE> <C-X><C-O>
 set guitablabel=%t
 " session loading and saving
 nmap <leader>m :mksession! $HOME/mysession.vim<CR>
-nmap <leader>r :so $HOME/mysession.vim<CR>
+nmap <leader>s :so $HOME/mysession.vim<CR>
 
 " functional keys
 "nmap <F2> :tabnew<CR>:Explore<CR>
@@ -173,7 +174,7 @@ map <F12> :source project.vim<CR>
 
 " trailing whitespace
 set listchars=tab:>-,trail:·,eol:$
-nmap <silent> <leader>s :set nolist!<CR>
+nmap <silent> <leader>p :set nolist!<CR>
 let c_space_errors=1
 highlight RedundantSpaces ctermbg=red guibg=red
 match RedundantSpaces /\s\+$\| \+\ze\t/
@@ -207,11 +208,19 @@ endif
 
 if has("x11")
 	"au GUIEnter * winpos 20 20
-	au GUIEnter * winsize 120 35
+  if &diff
+	  au GUIEnter * winsize 999 99
+  else
+	  au GUIEnter * winsize 120 35
+  endif
 	"set guifont=Bitstream\ Vera\ Sans\ Mono\ 10
 	"set guifont=-misc-fixed-medium-r-normal--15-*-iso8859-2
 	"set guifont=Console\ 10
-	set guifont=Terminus\ 14
+  if &diff
+	  set guifont=Terminus\ 8
+  else
+	  set guifont=Terminus\ 14
+  endif
 endif
 
 " COLOR SCHEME
@@ -228,8 +237,9 @@ colorscheme moria
 "hi Visual guibg=#666666 
 "
 " cursorline enables the highlighting of the line with cursor
+" but also SLOWS DOWN sytax highligting on long lines
 if has("gui_running")
-	set cursorline
+	set nocursorline
 endif
 
 " WILDIGNORE FOR FILE LISTS
@@ -254,4 +264,3 @@ let g:syntastic_auto_loc_list=2
 let g:syntastic_python_checker = 'pyflakes'
 
 " EOF
-
