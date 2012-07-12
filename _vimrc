@@ -263,4 +263,8 @@ set statusline+=%*
 let g:syntastic_auto_loc_list=2
 let g:syntastic_python_checker = 'pyflakes'
 
+" GIST PLUGIN
+let g:gist_open_browser_after_post = 1
+let g:gist_browser_command = 'google-chrome %URL% &'
+
 " EOF
