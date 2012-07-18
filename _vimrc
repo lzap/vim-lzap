@@ -130,6 +130,8 @@ map ;; `
 " SPECIAL MAPPING
 " leader
 let mapleader = ","
+" NERDTree plugin
+nmap <leader>o :NERDTree<CR>
 " CommandT plugin
 nmap <leader>, :CommandT<CR>
 nmap <leader>b :CommandTBuffer<CR>
@@ -146,7 +148,7 @@ nnoremap <C-F3> :if &go=~#'r'<Bar>set go-=r<Bar>else<Bar>set go+=r<Bar>endif<CR>
 " omnisense on control+space
 imap <C-SPACE> <C-X><C-O>
 " tablabel
-set guitablabel=%t
+set guitablabel=%{substitute(expand('%:p'),'/\\zs\\(.\\)[^/]*\\ze/','\\1','g')}
 " session loading and saving
 nmap <leader>m :mksession! $HOME/mysession.vim<CR>
 nmap <leader>s :so $HOME/mysession.vim<CR>
