@@ -136,7 +136,7 @@ map <leader>k :bprevious<CR>
 map <leader>q :b#<CR>
 
 " NERDTree plugin
-nmap <leader>n :NERDTree<CR>
+nmap <leader>n :NERDTreeToggle<CR>
 " CtrlP plugin
 nmap <leader>, :CtrlP<CR>
 nmap <leader>b :CtrlPBuffer<CR>
