@@ -118,25 +118,31 @@ map to :tabnext<Space>
 map tn :tabnew<CR>
 map tf :tabnew<CR>:find<Space>
 
-" NAVIGATING ERRORS
-map <leader>q :copen<CR>
-map <leader>w :cnext<CR>
-map <leader>e :cprevious<CR>
-map <leader>r :cclose<CR>
+" LEADER 
+let mapleader = ","
 
 " CZECH KEYBOARD SHORTCUTS
-map ;; `
+imap ;; `
 
-" SPECIAL MAPPING
-" leader
-let mapleader = ","
+" NAVIGATING ERRORS
+map <leader>co :copen<CR>
+map <leader>cj :cnext<CR>
+map <leader>ck :cprevious<CR>
+map <leader>cc :cclose<CR>
+
+" BUFFERS
+map <leader>j :bnext<CR>
+map <leader>k :bprevious<CR>
+map <leader>q :b#<CR>
+
 " NERDTree plugin
-nmap <leader>o :NERDTree<CR>
-" CommandT plugin
-nmap <leader>, :CommandT<CR>
-nmap <leader>b :CommandTBuffer<CR>
-nmap <leader>t :CommandTTag<CR>
-nmap <leader>f :CommandTFlush<CR>
+nmap <leader>n :NERDTree<CR>
+" CtrlP plugin
+nmap <leader>, :CtrlP<CR>
+nmap <leader>b :CtrlPBuffer<CR>
+nmap <leader>t :CtrlPTag<CR>
+" Tagbar plugin
+nmap <leader>r :NERDTree<CR>
 " tags (CTRL-] is very hard to do on Czech keylayout)
 map <C-K> <C-]>
 map <S-K> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
