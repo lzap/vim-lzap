@@ -122,7 +122,7 @@ map tf :tabnew<CR>:find<Space>
 let mapleader = ","
 
 " CZECH KEYBOARD SHORTCUTS
-imap ;; `
+imap ;; '
 
 " NAVIGATING ERRORS
 map <leader>co :copen<CR>
@@ -215,11 +215,10 @@ if has("win32")
 endif
 
 if has("x11")
-	"au GUIEnter * winpos 20 20
   if &diff
-	  au GUIEnter * winsize 999 99
+	  "au GUIEnter * winsize 999 99
   else
-	  au GUIEnter * winsize 120 35
+	  "au GUIEnter * winsize 120 35
   endif
 	"set guifont=Bitstream\ Vera\ Sans\ Mono\ 10
 	"set guifont=-misc-fixed-medium-r-normal--15-*-iso8859-2
@@ -269,7 +268,11 @@ set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 let g:syntastic_auto_loc_list=2
-let g:syntastic_python_checker = 'pyflakes'
+let g:syntastic_quiet_warnings=1
+"let g:syntastic_python_checker = 'pyflakes'
+let g:syntastic_python_checker = 'pylint'
+let g:syntastic_python_checker_args = '--rcfile=/etc/spacewalk-pylint.rc --additional-builtins=_'
+let g:syntastic_stl_format = '[%E{Err: %fe #%e}%B{, }%W{Warn: %fw #%w}]'
 
 " GIST PLUGIN
 let g:gist_open_browser_after_post = 1

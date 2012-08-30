@@ -1,5 +1,6 @@
 
-set spelllang=cs,en
+set filetype=markdown
+set spelllang=en
 set spell
 
 set fo=wat1
