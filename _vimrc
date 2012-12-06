@@ -51,10 +51,10 @@ else
 	set backupdir=~/.vimbackup
 endif
 set backup
-" save swap after 250 seconds of idle
-set updatetime=250000
+" save swap after 25 seconds of idle
+set updatetime=25000
 " or 1000 characters written
-set updatecount=1000
+set updatecount=100
 " do not flush the swap to disk (working on laptop)
 set swapsync=
 
@@ -66,7 +66,9 @@ set modelines=10
 set smartcase
 set incsearch
 set hlsearch
-set path=$PWD/**
+
+" COMPLETE PATH (do not set recursive - slow!)
+"set path=$PWD
 
 " STATUS LINE
 set laststatus=2
@@ -160,21 +162,11 @@ nmap <leader>m :mksession! $HOME/mysession.vim<CR>
 nmap <leader>s :so $HOME/mysession.vim<CR>
 
 " functional keys
-"nmap <F2> :tabnew<CR>:Explore<CR>
-"imap <F2> <C-o><F1>
-"command Wmake write | make
-"nmap <F5> :Wmake<CR>:cl<CR>
-"imap <F5> <C-o><F5>
-"nmap <F6> :cclose<CR>
-"imap <F6> <C-o><F5>
-"nmap <F7> :cprevious<CR>
-"imap <F7> <C-o><F5>
-"nmap <F8> :cnext<CR>
-"imap <F8> <C-o><F5>
-map <F5> :source project.vim<CR>
-map <F6> :source project.vim<CR>
-map <F7> :source project.vim<CR>
-map <F8> :source project.vim<CR>
+map <F5> :wa<CR>:make<CR>:cw<CR>
+map <F6> :cw<CR>
+map <F7> :cprevious<CR>
+map <F8> :cnext<CR>
+
 map <F9> :source project.vim<CR>
 map <F10> :source project.vim<CR>
 map <F11> :source project.vim<CR>
@@ -242,7 +234,9 @@ colorscheme moria
 "endif
 "hi Search guibg=#996666
 "hi Visual guibg=#666666 
-"
+hi clear SpellBad
+hi SpellBad cterm=underline
+
 " cursorline enables the highlighting of the line with cursor
 " but also SLOWS DOWN sytax highligting on long lines
 if has("gui_running")
@@ -277,5 +271,16 @@ let g:syntastic_stl_format = '[%E{Err: %fe #%e}%B{, }%W{Warn: %fw #%w}]'
 " GIST PLUGIN
 let g:gist_open_browser_after_post = 1
 let g:gist_browser_command = 'google-chrome %URL% &'
+
+" CTRLP PLUGIN
+let g:ctrlp_max_height = 25
+let g:ctrlp_open_multiple_files = '9tj'
+
+" GO LANG PLUGINS
+filetype off
+filetype plugin indent off
+set runtimepath+=$GOROOT/misc/vim
+filetype plugin indent on
+syntax on
 
 " EOF
