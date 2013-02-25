@@ -1,0 +1,105 @@
+" BASIC SETTING
+
+" other basic settings
+set nocompatible
+set backspace=2
+set history=300
+set ruler
+set showcmd
+set showmode
+set wildmenu
+set clipboard=unnamed
+"set fileencodings=ucs-bom,utf-8,default,iso-8859-2,cp1250,latin1
+syntax on
+
+" WILDIGNORE FOR FILE LISTS
+" default: *~,*.o,*.log,*.aux,*.dvi,*.tmp,*.pyc
+set wildignore+=*.pyc,*.pyo,.git,.svn
+
+" EDITING (this is programmer`s mode, for text you have to redefine explicitly
+" this basic setting, eg. for latex etc)
+set formatoptions=toqo
+set wrap
+set textwidth=0
+set linebreak
+"set smartindent
+set smarttab
+set tabstop=2
+set shiftwidth=2
+set expandtab
+" no bracket matching (very slow)
+set noshowmatch
+let loaded_matchparen = 1
+" backspace and cursor keys wrap to previous/next line
+set backspace=2 whichwrap+=<,>,[,]
+" no messages about changed files
+set autoread
+
+" SWAP FILE AND BACKUP DIR
+" directory to store in
+if has("win32")
+	set directory=c:\temp
+	set backupdir=c:/temp
+else
+	set directory=/tmp
+	set backupdir=~/.vimbackup
+endif
+set backup
+" save swap after 25 seconds of idle
+set updatetime=25000
+" or 100 characters written
+set updatecount=100
+" do not flush the swap to disk (working on laptop or in a VM)
+set swapsync=
+
+" MODELINE (vim:xxxx:)
+set modeline
+set modelines=10
+
+" SEARCHING
+set smartcase
+set incsearch
+set hlsearch
+
+" STATUS LINE
+set laststatus=2
+set statusline=%1*%n:%*\ %<%f\ %y%m%2*%r%*%=[%b,0x%B]\ \ %l/%L,%c%V\ \ %P
+set rulerformat=%3b\ \ %l,%c%V%=%P
+
+" MOVEMENT
+set scrolloff=5
+set sidescroll=5
+
+" SOFT WRAPPING
+set showbreak=+
+:noremap <Up> g<Up>
+:noremap <Down> g<Down>
+:inoremap <Up> <Esc>g<Up>a
+:inoremap <Down> <Esc>g<Down>a
+
+" LEADER 
+let mapleader = ","
+
+" NAVIGATING ERRORS
+map <leader>co :copen<CR>
+map <leader>cj :cnext<CR>
+map <leader>ck :cprevious<CR>
+map <leader>cc :cclose<CR>
+
+" BUFFERS
+map <leader>j :bnext<CR>
+map <leader>k :bprevious<CR>
+map <leader>c :bc<CR>
+map <leader>q :b#<CR>
+
+" session loading and saving
+nmap <leader>m :mksession! $HOME/mysession.vim<CR>
+nmap <leader>s :so $HOME/mysession.vim<CR>
+
+" folding
+if has("folding")
+  set foldmethod=manual
+  set foldlevel=6
+  set nofoldenable
+endif
+

@@ -1,85 +1,21 @@
-" BASIC SETTING
-
-" other basic settings
-set nocompatible
-set backspace=2
-set history=300
-set ruler
-set showcmd
-set showmode
-set wildmenu
-set wildignore=*~,*.o,*.log,*.aux,*.dvi,*.tmp
-map Q gq
-set mousehide
-set clipboard=unnamed
-map <S-Insert> <MiddleMouse>
-map! <S-Insert> <MiddleMouse>
-"set fileencodings=ucs-bom,utf-8,default,iso-8859-2,cp1250,latin1
-syntax on
-
-" EDITING (this is programmer`s mode, for text you have to redefine explicitly
-" this basic setting, eg. for latex etc)
-set formatoptions=toqo
-set wrap
-set textwidth=0
-set linebreak
-"set smartindent
-set smarttab
-set tabstop=2
-set shiftwidth=2
-set expandtab
-" no bracket matching (very slow)
-set noshowmatch
-let loaded_matchparen = 1
-" backspace and cursor keys wrap to previous/next line
-set backspace=2 whichwrap+=<,>,[,]
-" no messages about changed files
-set autoread
+" LOAD BASIC SETTING
+source $HOME/.vim/_vimrc_basic
 
 " FIX FOR cp1250 and English Windows XP isalpha() problem
 if has("win32")
 	set iskeyword=@,48-57,_,138,140-143,154,156-159,163,165,170,175,179,185,186,188,190-214,216-246,248-254
 endif
 
-" SWAP FILE AND BACKUP DIR
-" directory to store in
-if has("win32")
-	set directory=c:\temp
-	set backupdir=c:/temp
-else
-	set directory=/tmp
-	set backupdir=~/.vimbackup
-endif
-set backup
-" save swap after 25 seconds of idle
-set updatetime=25000
-" or 1000 characters written
-set updatecount=100
-" do not flush the swap to disk (working on laptop)
-set swapsync=
-
-" MODELINE (vim:xxxx:)
-set modeline
-set modelines=10
-
-" SEARCHING
-set smartcase
-set incsearch
-set hlsearch
-
 " COMPLETE PATH (do not set recursive - slow!)
 "set path=$PWD
-
-" STATUS LINE
-set laststatus=2
-set statusline=%1*%n:%*\ %<%f\ %y%m%2*%r%*%=[%b,0x%B]\ \ %l/%L,%c%V\ \ %P
-"highlight User1 guibg=white guifg=blue
-"highlight User2 guibg=white guifg=red
-set rulerformat=%3b\ \ %l,%c%V%=%P
 
 if has("gui_running")
 	set title
 	set titlestring=VI\ -\ %t
+  set mousehide
+
+  map <S-Insert> <MiddleMouse>
+  map! <S-Insert> <MiddleMouse>
 else
 	set notitle
 endif
@@ -98,16 +34,8 @@ set nojoinspaces
 " BEHAVE
 behave xterm
 
-" MOVEMENT
-set scrolloff=5
-set sidescroll=5
-
-" SOFT WRAPPING
-set showbreak=+
-:noremap <Up> g<Up>
-:noremap <Down> g<Down>
-:inoremap <Up> <Esc>g<Up>a
-:inoremap <Down> <Esc>g<Down>a
+" CZECH KEYBOARD SHORTCUTS
+imap ;; '
 
 " TABS (I dont like gt and gT)
 map tk :tabnext<CR>
@@ -119,24 +47,6 @@ map tm :tabm<Space>
 map to :tabnext<Space>
 map tn :tabnew<CR>
 map tf :tabnew<CR>:find<Space>
-
-" LEADER 
-let mapleader = ","
-
-" CZECH KEYBOARD SHORTCUTS
-imap ;; '
-
-" NAVIGATING ERRORS
-map <leader>co :copen<CR>
-map <leader>cj :cnext<CR>
-map <leader>ck :cprevious<CR>
-map <leader>cc :cclose<CR>
-
-" BUFFERS
-map <leader>j :bnext<CR>
-map <leader>k :bprevious<CR>
-map <leader>c :bc<CR>
-map <leader>q :b#<CR>
 
 " NERDTree plugin
 nmap <leader>n :NERDTreeToggle<CR>
@@ -158,9 +68,6 @@ nnoremap <C-F3> :if &go=~#'r'<Bar>set go-=r<Bar>else<Bar>set go+=r<Bar>endif<CR>
 imap <C-SPACE> <C-X><C-O>
 " tablabel
 set guitablabel=%{substitute(expand('%:p'),'/\\zs\\(.\\)[^/]*\\ze/','\\1','g')}
-" session loading and saving
-nmap <leader>m :mksession! $HOME/mysession.vim<CR>
-nmap <leader>s :so $HOME/mysession.vim<CR>
 " change working dir binds
 nmap <leader>gkk :cd ~/CloudForms/katello/src<CR>
 nmap <leader>gk :cd ~/CloudForms/katello<CR>
@@ -182,17 +89,6 @@ nmap <silent> <leader>p :set nolist!<CR>
 let c_space_errors=1
 highlight RedundantSpaces ctermbg=red guibg=red
 match RedundantSpaces /\s\+$\| \+\ze\t/
-
-" folding
-if has("folding")
-  set foldmethod=manual
-  set foldlevel=6
-  set nofoldenable
-  "nmap <F11> :foldopen<CR>
-  "nmap <F12> :foldclose<CR>
-  "imap <F11> <ESC>:foldopen<CR>i
-  "imap <F12> <ESC>:foldclose<CR>i
-endif
 
 " GUI (menu and toolbar hidden - toggle with CTRL+F1 to F3)
 set display=lastline
@@ -226,33 +122,13 @@ if has("x11")
   endif
 endif
 
-" COLOR SCHEME
-let moria_style = "black"
-colorscheme moria
-"if version >= 700
-	"hi CursorLine term=reverse ctermbg=0 guibg=#323232
-	"hi SpellBad term=reverse ctermbg=1 gui=underline guifg=Yellow
-	"hi SpellLocal term=reverse ctermbg=6 gui=underline guifg=Cyan
-	"hi SpellRare term=reverse ctermbg=5 gui=underline guifg=White
-	"hi SpellCap term=NONE ctermbg=NONE gui=NONE guifg=fg
-"endif
-"hi Search guibg=#996666
-"hi Visual guibg=#666666 
-hi clear SpellBad
-hi SpellBad cterm=underline
-
 " cursorline enables the highlighting of the line with cursor
 " but also SLOWS DOWN sytax highligting on long lines
 if has("gui_running")
 	set nocursorline
 endif
 
-" WILDIGNORE FOR FILE LISTS
-" default: *~,*.o,*.log,*.aux,*.dvi,*.tmp,*.pyc
-set wildignore+=*.pyc,*.pyo,.git,.svn
-
 " FILETYPE DETECTION
-
 if has("autocmd")
     " load indent files, to automatically do language-dependent indenting.
     filetype plugin indent on
@@ -286,5 +162,13 @@ filetype plugin indent off
 set runtimepath+=$GOROOT/misc/vim
 filetype plugin indent on
 syntax on
+
+" COLOR SCHEME (must be positioned after pathogen plugin)
+"let moria_style = "black"
+"colorscheme moria
+colorscheme distinguished
+hi clear SpellBad
+hi SpellBad cterm=underline
+
 
 " EOF
