@@ -49,3 +49,6 @@
 [submodule "bundle/tagbar"]
 	path = bundle/tagbar
 	url = git://github.com/majutsushi/tagbar.git
+[submodule "bundle/color-distinguished"]
+	path = bundle/color-distinguished
+	url = git://github.com/Lokaltog/vim-distinguished.git
