@@ -135,6 +135,7 @@ map <leader>cc :cclose<CR>
 " BUFFERS
 map <leader>j :bnext<CR>
 map <leader>k :bprevious<CR>
+map <leader>c :bc<CR>
 map <leader>q :b#<CR>
 
 " NERDTree plugin
@@ -148,7 +149,7 @@ nmap <leader>r :NERDTree<CR>
 " tags (CTRL-] is very hard to do on Czech keylayout)
 map <C-K> <C-]>
 map <S-K> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
-nmap <leader>g :silent !$HOME/.vim/ctags_update.sh<CR>
+nmap <leader>a :silent !$HOME/.vim/ctags_update.sh<CR>
 " menu and toolbar toggling
 nnoremap <C-F1> :if &go=~#'m'<Bar>set go-=m<Bar>else<Bar>set go+=m<Bar>endif<CR>
 nnoremap <C-F2> :if &go=~#'T'<Bar>set go-=T<Bar>else<Bar>set go+=T<Bar>endif<CR>
@@ -160,6 +161,9 @@ set guitablabel=%{substitute(expand('%:p'),'/\\zs\\(.\\)[^/]*\\ze/','\\1','g')}
 " session loading and saving
 nmap <leader>m :mksession! $HOME/mysession.vim<CR>
 nmap <leader>s :so $HOME/mysession.vim<CR>
+" change working dir binds
+nmap <leader>gkk :cd ~/CloudForms/katello/src<CR>
+nmap <leader>gk :cd ~/CloudForms/katello<CR>
 
 " functional keys
 map <F5> :wa<CR>:make<CR>:cw<CR>
