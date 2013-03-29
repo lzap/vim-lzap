@@ -78,10 +78,10 @@ map <F6> :cw<CR>
 map <F7> :cprevious<CR>
 map <F8> :cnext<CR>
 
-map <F9> :source project.vim<CR>
-map <F10> :source project.vim<CR>
-map <F11> :source project.vim<CR>
-map <F12> :source project.vim<CR>
+map <F9> :source .git/project.vim<CR>
+map <F10> :source .git/project.vim<CR>
+map <F11> :source .git/project.vim<CR>
+map <F12> :source .git/project.vim<CR>
 
 " trailing whitespace
 set listchars=tab:>-,trail:·,eol:$
