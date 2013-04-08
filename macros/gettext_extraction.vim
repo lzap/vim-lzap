@@ -16,7 +16,7 @@
 " Search for "strings" and 'strings' using this key and use "n" key to find
 " required string you want to convert
 " 
-map <F12> /["'][^"]*["']<CR>
+map <F12> /["'][^"']*["']<CR>
 "
 " Once a match is found and the caret is on the first quote, use one of the 
 " following keys to wrap _() around
@@ -24,15 +24,14 @@ map <F12> /["'][^"]*["']<CR>
 map <F5> i_(<ESC>2f"a)<ESC>2F"
 map <F6> i_(<ESC>2f'a)<ESC>2F'
 "
-" If there is one parameter, you can create % () behind the string using this
-" key
+" If there is one parameter, press this key to change the parameter to %s 
+" and move it behind the string
 "
-map <F7> mXf"f)a % ()<ESC>`X
+map <F7> mXf#ll"ndt}F#cf}%s<ESC>f)a % <ESC>"np<ESC>`X
 "
-" And then press this key to change the parameter to %s and move it into
-" prepared braces
+" The very same version but with extra brackets
 "
-map <F8> mXf#ll"ndt}F#cf}%s<ESC>2f)"nP<ESC>`X
+map <F8> mXf#ll"ndt}F#cf}%s<ESC>f)a % ()<ESC>"nP<ESC>`X
 "
 " If there are two or more params prepare curly braces behind the string using
 " this key
@@ -47,6 +46,15 @@ map <F10> mXf#ll"ndt}F#cf}%{}<ESC>"nPf%f}i:<ESC>"npa => <ESC>"npa, <ESC>`X
 " Note if the params contains @ or @@ you will need to clean this out. Also
 " the last macro leaves tailing comma - if you don't like it, remove manually.
 "
+" And this key is for adding N_(...) brackets
+"
+map <F11> iN_(<ESC>2f"a)<ESC>2F"
+"
 " The typical key flow is:
 " F12 n n n n F6 n n n F5 F7 F8 n n n F5 F9 F10 n n ...
 "
+" The following mappings are not generic - these are for the project I was
+" working on:
+
+map <leader><F5> mXi::Foreman.Exception.new(N_(<ESC>2f"a))<ESC>`X
+map <leader><F6> mXi::Foreman.Exception.new(N_(<ESC>2f'a))<ESC>`X
