@@ -79,6 +79,7 @@ set showbreak=+
 
 " LEADER 
 let mapleader = ","
+let maplocalleader = "\<Space>"
 
 " NAVIGATING ERRORS
 map <leader>co :copen<CR>
@@ -89,12 +90,12 @@ map <leader>cc :cclose<CR>
 " BUFFERS
 map <leader>j :bnext<CR>
 map <leader>k :bprevious<CR>
-map <leader>c :bc<CR>
+map <leader>c :bdelete<CR>
 map <leader>q :b#<CR>
 
 " session loading and saving
-nmap <leader>m :mksession! $HOME/mysession.vim<CR>
-nmap <leader>s :so $HOME/mysession.vim<CR>
+nmap <LocalLeader>sc :mksession! $HOME/mysession.vim<CR>
+nmap <LocalLeader>sl :so $HOME/mysession.vim<CR>
 
 " folding
 if has("folding")
