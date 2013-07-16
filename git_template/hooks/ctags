@@ -8,5 +8,11 @@ LANGS="-sql,-cobol"
 
 mkdir .git/tags_lock 2>/dev/null || exit 0
 trap "rmdir .git/tags_lock; rm -f .git/tags.$$" EXIT
-ctags --tag-relative -R -f .git/tags.$$ --exclude=.git "--languages=$LANGS"
+
+# general purpose ctags
+#ctags --tag-relative -R -f .git/tags.$$ --exclude=.git "--languages=$LANGS"
+
+# ruby-only tags
+ripper-tags --recurse --only-rb --vim --ignore-errors . > .git/tags.$$
+
 mv .git/tags.$$ .git/tags
