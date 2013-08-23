@@ -10,6 +10,8 @@ set sw=4
 set et
 set tw=78
 
-set ai formatoptions=tcroqn2 comments=n:>
+set ai
+set formatoptions=tcroqn2
+set comments=n:>
 
 " EOF

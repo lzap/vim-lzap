@@ -6,3 +6,5 @@
 
 set spelllang=en,cs
 set spell
+
+map <leader>d d/^--<ESC>:noh<CR>

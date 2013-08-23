@@ -1,0 +1,5 @@
+#!/bin/bash
+GITROOT=$(git rev-parse --git-dir)
+case "$1" in
+  rebase) exec $GITROOT/hooks/post-merge ;;
+esac
