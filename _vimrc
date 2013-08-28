@@ -83,13 +83,6 @@ map <F10> :source .git/project.vim<CR>
 map <F11> :source .git/project.vim<CR>
 map <F12> :source .git/project.vim<CR>
 
-" trailing whitespace
-set listchars=tab:>-,trail:·,eol:$
-nmap <silent> <leader>p :set nolist!<CR>
-let c_space_errors=1
-highlight RedundantSpaces ctermbg=red guibg=red
-match RedundantSpaces /\s\+$\| \+\ze\t/
-
 " GUI (menu and toolbar hidden - toggle with CTRL+F1 to F3)
 set display=lastline
 set guioptions+=a
@@ -170,5 +163,11 @@ colorscheme distinguished
 hi clear SpellBad
 hi SpellBad cterm=underline
 
+" trailing whitespace (MUST be AFTER colorscheme)
+set listchars=tab:>-,trail:·,eol:$
+nmap <silent> <leader>p :set nolist!<CR>
+let c_space_errors=1
+highlight RedundantSpaces ctermbg=red guibg=red
+match RedundantSpaces /\s\+$\| \+\ze\t/
 
 " EOF
