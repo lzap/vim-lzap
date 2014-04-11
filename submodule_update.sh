@@ -1,3 +1,7 @@
 #!/bin/bash
-# I never remember this:
+
+# update gocode
+go get -u github.com/nsf/gocode
+
+# update plugins
 git submodule foreach git pull origin master
