@@ -58,7 +58,7 @@ nmap <leader>t :CtrlPTag<CR>
 nmap <leader>r :NERDTree<CR>
 " tags (CTRL-] is very hard to do on Czech keylayout)
 map <C-K> <C-]>
-map <S-K> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
+map <S-K> :tab split<CR>:exec("tjump".expand("<cword>"))<CR>
 nmap <leader>a :silent !$HOME/.vim/ctags_update.sh<CR>
 " menu and toolbar toggling
 nnoremap <C-F1> :if &go=~#'m'<Bar>set go-=m<Bar>else<Bar>set go+=m<Bar>endif<CR>
@@ -161,7 +161,7 @@ syntax on
 "colorscheme moria
 colorscheme distinguished
 hi clear SpellBad
-hi SpellBad cterm=underline
+hi SpellBad cterm=underline ctermfg=yellow
 
 " trailing whitespace (MUST be AFTER colorscheme)
 set listchars=tab:>-,trail:·,eol:$
