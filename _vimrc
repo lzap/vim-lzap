@@ -35,7 +35,7 @@ set nojoinspaces
 behave xterm
 
 " CZECH KEYBOARD SHORTCUTS
-imap ;; '
+"imap ;; '
 
 " TABS (I dont like gt and gT)
 map tk :tabnext<CR>
@@ -47,6 +47,9 @@ map tm :tabm<Space>
 map to :tabnext<Space>
 map tn :tabnew<CR>
 map tf :tabnew<CR>:find<Space>
+
+" SELinux plugin
+map <Leader>x :call SelinuxCtagsSilent()<CR>
 
 " NERDTree plugin
 nmap <leader>n :NERDTreeToggle<CR>

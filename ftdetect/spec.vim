@@ -1,3 +1,3 @@
 augroup filetype
-	au! BufRead,BufNewFile *.spec ru macros/spec.vim
+	au! BufRead,BufNewFile *.spec,*.spec.in ru macros/spec.vim
 augroup end
