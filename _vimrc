@@ -76,15 +76,16 @@ nmap <leader>gkk :cd ~/CloudForms/katello/src<CR>
 nmap <leader>gk :cd ~/CloudForms/katello<CR>
 
 " functional keys
-map <F5> :wa<CR>:make<CR>:cw<CR>
-map <F6> :cw<CR>
-map <F7> :cprevious<CR>
-map <F8> :cnext<CR>
+set pastetoggle=<F6>
+"map <F5> :wa<CR>:make<CR>:cw<CR>
+"map <F6> :cw<CR>
+"map <F7> :cprevious<CR>
+"map <F8> :cnext<CR>
 
-map <F9> :source .git/project.vim<CR>
-map <F10> :source .git/project.vim<CR>
-map <F11> :source .git/project.vim<CR>
-map <F12> :source .git/project.vim<CR>
+"map <F9> :source .git/project.vim<CR>
+"map <F10> :source .git/project.vim<CR>
+"map <F11> :source .git/project.vim<CR>
+"map <F12> :source .git/project.vim<CR>
 
 " GUI (menu and toolbar hidden - toggle with CTRL+F1 to F3)
 set display=lastline
