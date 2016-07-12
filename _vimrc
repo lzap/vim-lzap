@@ -183,4 +183,7 @@ let c_space_errors=1
 highlight RedundantSpaces ctermbg=red guibg=red
 match RedundantSpaces /\s\+$\| \+\ze\t/
 
+" GIT COMMIT
+au FileType gitcommit set tw=72
+
 " EOF
