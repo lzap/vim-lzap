@@ -87,6 +87,13 @@ set pastetoggle=<F6>
 "map <F11> :source .git/project.vim<CR>
 "map <F12> :source .git/project.vim<CR>
 
+" custom commands
+:command W w
+:command Wa wa
+:command WA wa
+:command Wq wq
+:command WQ wq
+
 " GUI (menu and toolbar hidden - toggle with CTRL+F1 to F3)
 set display=lastline
 set guioptions+=a
@@ -139,7 +146,8 @@ set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 let g:syntastic_auto_loc_list=2
-let g:syntastic_quiet_warnings=1
+"let g:syntastic_quiet_warnings=1
+"let g:syntastic_quiet_messages=1
 "let g:syntastic_python_checker = 'pyflakes'
 let g:syntastic_python_checker = 'pylint'
 let g:syntastic_python_checker_args = '--rcfile=/etc/spacewalk-pylint.rc --additional-builtins=_'
@@ -168,7 +176,8 @@ hi clear SpellBad
 hi SpellBad cterm=underline ctermfg=yellow
 
 " trailing whitespace (MUST be AFTER colorscheme)
-set listchars=tab:>-,trail:·,eol:$
+set listchars=trail:·
+set list
 nmap <silent> <leader>p :set nolist!<CR>
 let c_space_errors=1
 highlight RedundantSpaces ctermbg=red guibg=red

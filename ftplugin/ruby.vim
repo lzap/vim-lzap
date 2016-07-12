@@ -6,5 +6,9 @@ let g:rubycomplete_rails = 0
 
 let ruby_no_expensive = 1
 
-map ě :wa<CR>:!rspec %<CR>
+set sw=2
+set ts=2
+set et
+
+"map ě :wa<CR>:!rspec %<CR>
 
