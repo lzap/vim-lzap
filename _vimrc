@@ -160,6 +160,7 @@ let g:gist_browser_command = 'google-chrome %URL% &'
 " CTRLP PLUGIN
 let g:ctrlp_max_height = 25
 let g:ctrlp_open_multiple_files = '9tj'
+let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
 
 " GO LANG PLUGINS
 filetype off
@@ -169,9 +170,10 @@ filetype plugin indent on
 syntax on
 
 " COLOR SCHEME (must be positioned after pathogen plugin)
-"let moria_style = "black"
-"colorscheme moria
-colorscheme distinguished
+set t_Co=256
+set background=dark
+colorscheme solarized
+
 hi clear SpellBad
 hi SpellBad cterm=underline ctermfg=yellow
 

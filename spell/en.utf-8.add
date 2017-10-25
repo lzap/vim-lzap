@@ -1,11 +1,9 @@
 changeset
-McCune
 lzap
 katello
 systemengine
 uninstall
 uuid
-Khachikyan
 LZ
 backend
 refactor
@@ -18,9 +16,8 @@ redmine
 theforeman
 PXELinux
 Kickstart
-pxelinux
+PXELinux
 OpenStack
 plugin
 oVirt
-stateful
 Ansible
