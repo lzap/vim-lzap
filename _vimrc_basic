@@ -9,8 +9,47 @@ set showcmd
 set showmode
 set wildmenu
 set clipboard=unnamed
+set hidden
 "set fileencodings=ucs-bom,utf-8,default,iso-8859-2,cp1250,latin1
 syntax on
+
+" LEADER SHORTCUTS
+" http://vim.wikia.com/wiki/Unused_keys
+" http://vimdoc.sourceforge.net/htmldoc/map.html#:map-alt-keys
+let mapleader = ","
+let maplocalleader = ";"
+
+" CUSTOM SHORTCUTS
+set pastetoggle=<F6>
+map <F7> :bprevious<CR>
+map <F8> :bnext<CR>
+map <F9> :Buffers<CR>
+map <F10> :GFiles<CR>
+map <F11> :silent !$HOME/.vim/ctags_update.sh<CR>
+map <F12> :Ack! "\b<cword>\b" <CR>
+
+" CTRL-] is very hard to do on Czech keylayout
+map <s-k> <C-]>
+map <C-K> <C-]>
+
+" fzf.vim shortcuts: https://github.com/junegunn/fzf.vim
+nmap <leader>, :GFiles<CR>
+nmap <leader>f :Files<CR>
+nmap <leader>t :Tags<CR>
+nmap <leader>b :BTags<CR>
+
+" BUFFERS
+map <leader>n :bnext<CR>
+map <leader>p :bprevious<CR>
+map <leader>d :bdelete<CR>
+map <leader>q :b#<CR>
+map <localleader>; :b#<CR>
+
+" NAVIGATING ERRORS
+map <localleader>o :copen<CR>
+map <localleader>j :cnext<CR>
+map <localleader>k :cprevious<CR>
+map <localleader>c :cclose<CR>
 
 " WILDIGNORE FOR FILE LISTS
 " default: *~,*.o,*.log,*.aux,*.dvi,*.tmp,*.pyc
@@ -76,26 +115,6 @@ set showbreak=+
 :noremap <Down> g<Down>
 :inoremap <Up> <Esc>g<Up>a
 :inoremap <Down> <Esc>g<Down>a
-
-" LEADER 
-let mapleader = ","
-let maplocalleader = "\<Space>"
-
-" NAVIGATING ERRORS
-map <leader>co :copen<CR>
-map <leader>cj :cnext<CR>
-map <leader>ck :cprevious<CR>
-map <leader>cc :cclose<CR>
-
-" BUFFERS
-map <leader>j :bnext<CR>
-map <leader>k :bprevious<CR>
-map <leader>c :bdelete<CR>
-map <leader>q :b#<CR>
-
-" session loading and saving
-nmap <LocalLeader>sc :mksession! $HOME/mysession.vim<CR>
-nmap <LocalLeader>sl :so $HOME/mysession.vim<CR>
 
 " folding
 if has("folding")
