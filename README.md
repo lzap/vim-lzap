@@ -1,6 +1,7 @@
 # Sane Vim configuration
 
-As much as "vanilla" configuration for Vim 8.2+ with only plugins which are avaialble in Fedora 35+.
+As much as "vanilla" configuration as possible for Vim 8.2+ with only plugins
+which are avaialble in Fedora 35+.
 
 ## Safe installation
 
