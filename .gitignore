@@ -1,3 +1,2 @@
-.netrwhist
-*.swp
-bundle/vim-selinux
+/.netrwhist
+/*.swp
