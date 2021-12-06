@@ -32,6 +32,29 @@ shell profile):
 
 	export FZF_DEFAULT_COMMAND="rg --files"
 
+Additional directories (e.g. locale commited into git) can go into
+$HOME/.ripgrep:
+
+	$ cat .ripgreprc
+	--ignore-file=/home/lzap/.agignore
+
+	$ cat .agignore
+	/vendor
+	/log
+	/tmp
+	/coverage
+	/spec/fixtures
+	/public/assets
+	/app/assets/javascripts/locale
+	/jenkins
+	/locale
+	/test/reports
+	/test/data
+	/CHANGELOG
+	/tags
+	/web/assets
+	/test/**/fixtures/**
+
 ## Legacy configuration
 
 If you are looking for my old configuration it is here:
