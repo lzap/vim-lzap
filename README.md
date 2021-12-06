@@ -5,18 +5,32 @@ which are avaialble in Fedora 35+.
 
 ## Safe installation
 
-	dnf install --allowerasing vim-default-editor \
-		    vim-enhanced \
-		    vim-ctrlp \
-		    vim-airline \
-		    vim-trailing-whitespace \
-		    vim-fugitive \
-		    vim-ale \
-		    fzf \
-		    ctags
-        test -f ~/.vimrc && mv ~/.vimrc ~/.vimrc.backup
-        curl -s https://raw.githubusercontent.com/lzap/vim-lzap/master/.vimrc -o ~/.vimrc
-        mkdir ~/.vimbackup
+dnf install --allowerasing vim-default-editor \
+	vim-enhanced \
+	vim-ctrlp \
+	vim-airline \
+	vim-trailing-whitespace \
+	vim-fugitive \
+	vim-ale \
+	fzf \
+	rg \
+	ctags
+test -f ~/.vimrc && mv ~/.vimrc ~/.vimrc.backup
+curl -s https://raw.githubusercontent.com/lzap/vim-lzap/master/.vimrc -o ~/.vimrc
+mkdir ~/.vimbackup
+
+## FZF
+
+By default the configuration makes use of the excellent `fzf` fuzzy file search
+tool when Leader-Leader is pressed. It is one of the fastest and the most
+accurate file fuzzy searchers out there. By default it searches all files and
+directories, it is possible to configure it to use `ag` or `rg` (ripgrep) to
+utilize `.gitignore` and similar configuration files for even better results.
+
+To do that, make sure to use the following environmental variable (e.g. in
+shell profile):
+
+	export FZF_DEFAULT_COMMAND="rg --files"
 
 ## Legacy configuration
 
