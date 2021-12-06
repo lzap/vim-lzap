@@ -5,14 +5,15 @@ which are avaialble in Fedora 35+.
 
 ## Safe installation
 
-        dnf install --allowerasing vim-default-editor \
-                vim-enhanced \
-                vim-ctrlp \
-                vim-airline \
-                vim-trailing-whitespace \
-                vim-fugitive \
-                vim-ale \
-                ctags
+	dnf install --allowerasing vim-default-editor \
+		    vim-enhanced \
+		    vim-ctrlp \
+		    vim-airline \
+		    vim-trailing-whitespace \
+		    vim-fugitive \
+		    vim-ale \
+		    fzf \
+		    ctags
         test -f ~/.vimrc && mv ~/.vimrc ~/.vimrc.backup
         curl -s https://raw.githubusercontent.com/lzap/vim-lzap/master/.vimrc -o ~/.vimrc
         mkdir ~/.vimbackup
