@@ -1,9 +1,33 @@
 " vim: nowrap sw=2 sts=2 ts=2 et:
+
+" vundle
+set nocompatible
+filetype off
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+Plugin 'VundleVim/Vundle.vim'
+Plugin 'tpope/vim-fugitive'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+Plugin 'ntpeters/vim-better-whitespace'
+Plugin 'junegunn/fzf'
+Plugin 'junegunn/fzf.vim'
+Plugin 'govim/govim'
+"Plugin 'w0rp/ale'
+call vundle#end()
+
+" govim plugin
+source ~/.vim/bundle/govim/cmd/govim/config/minimal.vimrc
+
 " leaders
 let mapleader=","
 let maplocalleader="_"
 
-" filetype and intent
+" colors
+set background=dark
+colorscheme solarized
+
+" filetype and intent (also required by vundle)
 filetype plugin indent on
 
 " optional plugins coming with Vim
@@ -15,15 +39,12 @@ end
 set backupdir=~/.vimbackup
 
 " fuzzy searching
-let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
 nnoremap <leader><leader> :FZF<cr>
-" Uncmment if you prefer CtrlP file searching instead of FZF
-"let g:ctrlp_map = '<leader><leader>'
-nnoremap <leader>b :CtrlPBuffer<cr>
-nnoremap <leader>t :CtrlPTag<cr>
-nnoremap <leader>f :CtrlPBufTag<cr>
-nnoremap <leader>q :CtrlPQuickfix<cr>
-nnoremap <leader>m :CtrlPMRU<cr>
+nnoremap <leader>b :Buffers<cr>
+nnoremap <leader>t :Tags<cr>
+nnoremap <leader>T :BTags<cr>
+nnoremap <leader>c :Commits<cr>
+nnoremap <leader>h :History<cr>
 
 " buffers and quickfix
 function! ToggleQuickFix()
@@ -33,10 +54,11 @@ function! ToggleQuickFix()
     cclose
   endif
 endfunction
-nnoremap <leader>w :call ToggleQuickFix()<cr>
+nnoremap <leader>q :call ToggleQuickFix()<cr>
 nnoremap <leader>d :bd<cr>
 
 " searching ang grepping
+nnoremap <leader>r :Rg<SPACE>
 nnoremap <leader>g :copen<cr>:Ggrep!<SPACE>
 nnoremap K :Ggrep "\b<C-R><C-W>\b"<cr>:cw<cr>
 nnoremap <leader>s :set hlsearch! hlsearch?<cr>
