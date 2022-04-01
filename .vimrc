@@ -16,8 +16,23 @@ Plugin 'govim/govim'
 "Plugin 'w0rp/ale'
 call vundle#end()
 
-" govim plugin
-source ~/.vim/bundle/govim/cmd/govim/config/minimal.vimrc
+" govim plugin: ~/.vim/bundle/govim/cmd/govim/config/minimal.vimrc
+set nocompatible
+set nobackup
+set nowritebackup
+set noswapfile
+set updatetime=500
+set balloondelay=250
+set signcolumn=yes
+autocmd! BufEnter,BufNewFile *.go,go.mod syntax on
+autocmd! BufLeave *.go,go.mod syntax off
+set autoindent
+set smartindent
+set backspace=2
+if has("patch-8.1.1904")
+  set completeopt+=popup
+  set completepopup=align:menu,border:off,highlight:Pmenu
+endif
 
 " leaders
 let mapleader=","
