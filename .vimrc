@@ -24,8 +24,6 @@ set noswapfile
 set updatetime=500
 set balloondelay=250
 set signcolumn=yes
-autocmd! BufEnter,BufNewFile *.go,go.mod syntax on
-autocmd! BufLeave *.go,go.mod syntax off
 set autoindent
 set smartindent
 set backspace=2
@@ -39,8 +37,28 @@ let mapleader=","
 let maplocalleader="_"
 
 " colors
-set background=dark
-colorscheme solarized
+if has('mac')
+  if system("defaults read -g AppleInterfaceStyle") =~ '^Dark'
+    set background=dark
+    colorscheme evening
+  else
+    set background=light
+    colorscheme morning
+  endif
+
+  " some defaults on MacOS are overriden
+  set modeline
+  set modelines=5
+  syntax on
+else
+  set background=dark
+  colorscheme solarized
+endif
+
+" GUI fonts
+if has("gui_macvim")
+  set guifont=Monaco:h16
+endif
 
 " filetype and intent (also required by vundle)
 filetype plugin indent on
@@ -71,6 +89,9 @@ function! ToggleQuickFix()
 endfunction
 nnoremap <leader>q :call ToggleQuickFix()<cr>
 nnoremap <leader>d :bd<cr>
+
+" make
+nnoremap <leader>m :make<cr>
 
 " searching ang grepping
 nnoremap <leader>r :Rg<SPACE>
